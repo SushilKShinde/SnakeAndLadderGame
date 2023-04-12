@@ -42,68 +42,64 @@ namespace SnakeAndLadderGameProgram
                 const int LADDER1 = 2;
                 const int noPlay1 = 0;
                 Console.WriteLine("Player 2 : " + playerOption2);
-                //Console.WriteLine("playerPosition : " + playerPosition);
-                switch (playerOption1)
+
+                if (playerOption1 == LADDER)
                 {
-                    case LADDER:
-                        player1 += DieNumber1;// If ladder comes player position will be incremented;
-                        if (player1 > finalPosition) // This If condition executed When ever player position More than 100 and sets previous value if the die number is more than required number
-                        {
-                            player1 -= DieNumber1;//Setting player positionto previous position
-                        }
-                        break;
-
-                    case SNAKE:
-                        player1 -= DieNumber1; // If Snake comes player position will be decremented;
-                        if (player1 < initialPosition) // This If condition executed When ever player position less than 0 and sets Value player initial value zero;
-                        {
-                            player1 = initialPosition;
-                        }
-
-                        break;
-                    case noPlay:
-                        player1 = player1; // If Noplay comes player should stay on the Same position;
-                        break;
-
-                    default:
-                        player1 += DieNumber1;
-                        if (player1 > finalPosition) // This If condition executed When ever player position More than 100 and sets previous value if the die number is more than required number
-                        {
-                            player1 -= DieNumber1; // seting player position to previous position
-                        }
-
-                        break;
+                    player1 += DieNumber1;
+                    if (player1 > finalPosition)
+                    {
+                        player1 -= DieNumber1;
+                    }
                 }
-                switch (playerOption2)
+                else if (playerOption1 == SNAKE)
                 {
-                    case LADDER1:
-                        player2 += DieNumber1;// If ladder comes player position will be incremented;
-                        if (player2 > finalPosition) // This If condition executed When ever player position More than 100 and sets previous value if the die number is more than required number
-                        {
-                            player2 -= DieNumber2;//Seting player positionto previous position
-                        }
-                        break;
-                    case SNAKE1:
-                        player2 -= DieNumber2; // If Snake comes player position will be decremented;
-                        if (player2 < initialPosition) // This If condition executed When ever player position less than 0 and sets Value player initial value zero;
-                        {
-                            player2 = initialPosition;
-                        }
-
-                        break;
-                    case noPlay1:
-                        player2 = player2;//If Noplay comes player should stay on the Same position;
-                        break;
-
-                    default:
-                        player2 += DieNumber2;
-                        if (player2 > finalPosition) // This If condition executed When ever player position More than 100 and sets previous value if the die number is more than required number
-                        {
-                            player2 -= DieNumber2;//seting player position to previous position
-                        }
-
-                        break;
+                    player1 -= DieNumber1; 
+                    if (player1 < initialPosition)
+                    {
+                        player1 = initialPosition;
+                    }
                 }
+                else if (playerOption1 == noPlay)
+                {
+                    player1 = player1;
+                }
+                else
+                {
+                    player1 += DieNumber1;
+                    if (player1 > finalPosition) 
+                    {
+                        player1 -= DieNumber1; 
+                    }
+                }
+ 
+                if (playerOption2 == LADDER1)
+                {
+                    player2 += DieNumber1;
+                    if (player2 > finalPosition)
+                    {
+                        player2 -= DieNumber2;
+                    }
+                }
+                else if (playerOption2 == SNAKE1)
+                {
+                    player2 -= DieNumber2; 
+                    if (player2 < initialPosition) 
+                    {
+                        player2 = initialPosition;
+                    }
+                }
+                else if (playerOption2 == noPlay1)
+                {
+                    player2 = player2;
+                }
+                else
+                {
+                    player2 += DieNumber2;
+                    if (player2 > finalPosition) 
+                    {
+                        player2 -= DieNumber2;
+                    }
+                }                
                 Console.WriteLine("player1: " + player1);
                 Console.WriteLine("player2: " + player2);
 
