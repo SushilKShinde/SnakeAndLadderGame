@@ -29,28 +29,27 @@ namespace SnakeAndLadderGameProgram
                 const int SNAKE = 1;
                 const int LADDER = 2;
                 Console.WriteLine("PlayerOption : " + playerOption);
-                switch (playerOption)
+                if(playerOption == SNAKE)
                 {
-                    case LADDER:
-                        playerPosition += DieNumber; // If ladder comes player position will be incremented;
-                        if (playerPosition > finalPosition)
-                        {
-                            playerPosition -= DieNumber;
-                        }
-                        break;
-                    case SNAKE:
-                        playerPosition -= DieNumber; // If Snake comes player position will be decremented;
-                        if (playerPosition < initialPosition)
-                        {
-                            playerPosition = initialPosition;
-                        }
-                        break;
-                    default:
-                        playerPosition = playerPosition; // If Noplay comes player should stay on the Same position;
-                        break;
+                    playerPosition = playerPosition -DieNumber; // If Snake decreament position by dice number;
+                    if (playerPosition < initialPosition)
+                    {
+                        playerPosition = initialPosition;
+                    }
+                }
+                else if (playerOption == LADDER)
+                {
+                    playerPosition += DieNumber; // for ladder increment position by dice number ;
+                    if (playerPosition > finalPosition)
+                    {
+                        playerPosition = playerPosition + DieNumber;
+                    }
+                }
+                else
+                {
+                    playerPosition = playerPosition; //no change for no play
                 }
                 Console.WriteLine("playerPosition : " + playerPosition);
-
             }
             Console.WriteLine("Player Final Position : " + playerPosition);
         }
