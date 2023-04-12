@@ -20,24 +20,24 @@ namespace SnakeAndLadderGameProgram
             Random random = new Random();
             int DieNumber = random.Next(1, 7);
             Console.WriteLine(DieNumber);
-            //UC3 Setting Options For the Game(NoPlay, Ladd);
+            //UC3 selecting the Options between no play/snake/ladder
             Random random1 = new Random();
             int playerOption = random1.Next(0, 3);
             const int SNAKE = 1;
             const int LADDER = 2;
             Console.WriteLine(playerOption);
             Console.WriteLine(playerPosition);
-            switch (playerOption)
+            if (playerOption == LADDER)
             {
-                case LADDER:
-                    playerPosition += DieNumber; // If ladder comes player position will be incremented;
-                    break;
-                case SNAKE:
-                    playerPosition -= DieNumber; // If Snake comes player position will be decremented;
-                    break;
-                default:
-                    playerPosition = playerPosition; // If Noplay comes player should stay on the Same position;
-                    break;
+                playerPosition = playerPosition+ DieNumber;
+            }
+            else if (playerOption == SNAKE)
+            {
+                playerPosition = playerPosition - DieNumber;
+            }
+            else
+            {
+                playerPosition = playerPosition;
             }
             Console.WriteLine(playerPosition);
         }
